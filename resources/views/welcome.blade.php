@@ -87,11 +87,11 @@
 						<div class="social">
 							<ul>
 								
-								<li>
+								<!-- <li>
 									<a href="#" title="Twitter">
 										<i class="fab fa-twitter"></i>
 									</a>
-								</li>
+								</li> -->
 								
 								<li>
 									<a href="https://www.facebook.com/medisah247/?ref=chp" title="Facebook">
@@ -99,23 +99,23 @@
 									</a>
 								</li>
 								
-								<li>
+								<!-- <li>
 									<a href="#" title="Pinterest">
 										<i class="fab fa-pinterest"></i>
 									</a>
-								</li>
+								</li> -->
 								
-								<li>
+								<!-- <li>
 									<a href="#" title="Instagram">
 										<i class="fab fa-instagram"></i>
 									</a>
-								</li>
+								</li> -->
 								
-								<li>
+								<!-- <li>
 									<a href="#" title="Vimeo">
 										<i class="fab fa-vimeo-v"></i>
 									</a>
-								</li>
+								</li> -->
 							
 							</ul>
 						</div>
