@@ -124,11 +124,11 @@
 					</section>
 	
 					<!-- Modal page toggle -->
-					<!-- <div class="modal-toggle">
+					<div class="modal-toggle">
 						<a href="#" id="modal-open" title="More Info">
 							<i class="fas fa-angle-right"></i>
 						</a>
-					</div> -->
+					</div>
 	
 				</div>
 			</div>
@@ -147,7 +147,7 @@
 					<!-- Content -->
 					<section class="content">
 						
-						<h1 class="title">About <span>Selene</span></h1>
+						<h1 class="title">About <span>Medisah</span></h1>
 					
 						<!-- Columns -->
 						<div class="row">
@@ -159,20 +159,20 @@
 							</div>
 							
 							<div class="one-half">
-								<h2><i class="fas fa-phone"></i> Phone</h2>
+								<!-- <h2><i class="fas fa-phone"></i> Phone</h2>
 								<p>
-									Phone: +1 (866) 496-3250<br />
-									Fax: +1 (866) 496-3251
-								</p>
+									<!-- Phone: +1 (866) 496-3250<br />
+									Fax: +1 (866) 496-3251 -->
+								<!-- </p> -->
 								
-								<h2><i class="fas fa-envelope"></i> Email</h2>
-								<p>
+								<!-- <h2><i class="fas fa-envelope"></i> Email</h2> -->
+								<!-- <p>
 									<a href="/cdn-cgi/l/email-protection#46232b272f2a06352f322328272b236825292b"><span class="__cf_email__" data-cfemail="8de8e0ece4e1cdfee4f9e8e3ece0e8a3eee2e0">[email&#160;protected]</span></a>
-								</p>
+								</p> -->
 								
 								<h2><i class="fas fa-map"></i> Address</h2>
 								<p>
-									200 Aquarium Way Long Beach, CA 90803, United States
+								London Road, Oxford, OX3 7, United Kingdom
 								</p>
 							</div>
 							
@@ -194,34 +194,20 @@
 		</div>
 	
 		<!-- jQuery -->
-		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="layout/plugins/jquery/jquery.js"></script>
+		<script data-cfasync="false" src="js/email-decode.js"></script>
+		<script src="js/jquery.js"></script>
 
 		<!-- Plugins -->
-		<script src="layout/plugins/modernizr/modernizr.custom.js"></script>
-		<script src="layout/plugins/backstretch/jquery.backstretch.min.js"></script>	
-		<script src="layout/plugins/plugin/jquery.plugin.min.js"></script>
-		<script src="layout/plugins/countdown/jquery.countdown.min.js"></script>
-		<script src="layout/plugins/validate/jquery.validate.min.js"></script>
-		<script src="layout/plugins/placeholder/jquery.placeholder.min.js"></script>
+		<script src="js/modernizer.js"></script>
+		<script src="js/backstretch.min.js"></script>	
+		<script src="js/jquery.plugin.min.js"></script>
+		<script src="js/jquery.countdown.min.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+		<script src="js/jquery.placeholder.min.js"></script>
 		<script src="layout/plugins/ytplayer/jquery.mb.ytplayer.min.js"></script>
 
 		<!-- Main -->
-		<script src="layout/js/main.js"></script>
-
-		<!-- Settings (Remove it on your site) -->
-		<script src="layout/plugins/settings/jquery.cookies.min.js"></script>
-		<script src="layout/plugins/settings/settings.js"></script>
-        
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171793417-4"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-171793417-4');
-        </script>
-	
+		<script src="js/main.js"></script>
 	</body>	
 	
 </html>

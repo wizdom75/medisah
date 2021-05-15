@@ -466,7 +466,7 @@ h1.title > span {
 .countdown-section {
 	border-left:1px dotted #dadada;
 	border-color:rgba(218,218,218,0.8);
-	color:#dadada;
+	color:#323232;
 	display:inline-block;
 	font-size:12px;
 	line-height:12px;
@@ -484,7 +484,7 @@ h1.title > span {
 }
 
 .countdown-amount {
-	color:#fff;
+	color:#95C700;
 	display:block;
 	font-weight:700;
 	font-size:60px;
