@@ -69,7 +69,8 @@
 						<!-- Newsletter form -->
 						<div id="newsletter" class="form-wrap">
 						
-							<form action="subscribe.php" method="post" id="newsletter-form">
+							<form action="{{ '/subscribe' }}" method="post" id="newsletter-form">
+							@csrf
 							
 								<p class="form-field">
 									<input type="text" name="email" id="email" value="" placeholder="Your email" />
@@ -123,11 +124,11 @@
 					</section>
 	
 					<!-- Modal page toggle -->
-					<div class="modal-toggle">
+					<!-- <div class="modal-toggle">
 						<a href="#" id="modal-open" title="More Info">
 							<i class="fas fa-angle-right"></i>
 						</a>
-					</div>
+					</div> -->
 	
 				</div>
 			</div>
