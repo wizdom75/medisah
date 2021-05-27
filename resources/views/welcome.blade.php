@@ -147,21 +147,22 @@
 					<!-- Content -->
 					<section class="content">
 						
-						<h1 class="title">About <span>Medisah</span></h1>
+						<h1 class="title">About <span>MEDISAH</span></h1>
 					
 						<!-- Columns -->
 						<div class="row">
 							
 							<div class="one-half">
-								<p>Sed congue blandit augue, at malesuada nisl pulvinar et. Fusce varius magna eget magna maximus venenatis.</p>
-								<p>Nulla facilisi. Pellentesque ac finibus diam. Suspendisse potenti. Nullam id nibh at velit placerat ornare non non lorem.</p>
-								<p>Morbi vulputate sed turpis sed mollis. Ut eget lectus eros. Donec mollis et orci eu vulputate.</p>
+							 
+<p>Medical self assistance hub. We are an Online Pharmaceutical Platform bringing you close to all your medication needs at your door step, regardless of where you are.</p>
+We pride ourselves in working extremely hard, hand in hand with majority of local Pharmaceutical Companies to give you Our valued clients access to both over the counter and prescribed medications, just at the Click of a Button and at the comfort of your home from wherever you are .
+
 							</div>
 							
 							<div class="one-half">
 								<!-- <h2><i class="fas fa-phone"></i> Phone</h2>
 								<p>
-									<!-- Phone: +1 (866) 496-3250<br />
+									 Phone: +1 (866) 496-3250<br />
 									Fax: +1 (866) 496-3251 -->
 								<!-- </p> -->
 								
