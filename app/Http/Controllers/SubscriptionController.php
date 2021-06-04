@@ -20,7 +20,7 @@ class SubscriptionController extends Controller
 
         $sub->email = $request->input('email');
         $sub->save();
-        return redirect('/');
+        return $sub;
     }
 
 }

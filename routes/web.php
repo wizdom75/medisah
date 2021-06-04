@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriptionController;
+use App\Models\Subscription;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
