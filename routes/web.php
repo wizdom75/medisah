@@ -15,7 +15,7 @@ use App\Models\Subscription;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('soon');
 });
 
 Route::post('/subscribe', [SubscriptionController::class, 'store']);
