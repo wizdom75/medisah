@@ -14,8 +14,41 @@ use App\Models\Subscription;
 |
 */
 
+
+// Route::domain('{merchant}.'.explode('//', env('APP_URL'))[1])->group(function () {
+//     Route::get('user/{id}', function ($account, $id) {
+//         //
+//     });
+// });
+
+Route::domain('admin.'.explode('//', env('APP_URL'))[1])->group(function () {
+
+    Route::group(['middleware' => 'auth'], function() {
+        Route::resources([
+            'categories' => App\Http\Controllers\CategoryController::class,
+            'products' => App\Http\Controllers\ProductController::class,
+            'pos' => App\Http\Controllers\PosController::class,
+            'suppliers' => App\Http\Controllers\SupplierController::class,
+            'sales' => App\Http\Controllers\SaleController::class,
+            'users' => App\Http\Controllers\UserController::class,
+            'teams' => App\Http\Controllers\TeamController::class,
+            'items' => App\Http\Controllers\ItemController::class,
+            'merchants' => App\Http\Controllers\MerchantController::class,
+        ]);
+        Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+    });
+
+});
+
+
+
 Route::get('/', function () {
     return view('soon');
 });
 
 Route::post('/subscribe', [SubscriptionController::class, 'store']);
+
+//Auth::routes();
+Auth::routes(['register' => false]);
+Auth::routes();
+
