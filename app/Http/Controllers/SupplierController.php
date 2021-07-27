@@ -16,7 +16,7 @@ class SupplierController extends Controller
     {
         if (auth()->user()->role === 'Superadmin') {
             return view('suppliers.index', [
-                'users' => Supplier::orderBy('job_title', 'DESC')->paginate(10),
+                'suppliers' => Supplier::orderBy('job_title', 'DESC')->paginate(10),
             ]); 
         }
         return view('suppliers.index', [

@@ -16,7 +16,7 @@ class SaleController extends Controller
     {
         if (auth()->user()->role === 'Superadmin') {
             return view('sales.index', [
-                'users' => Sale::orderBy('job_title', 'DESC')->paginate(10),
+                'sales' => Sale::orderBy('id', 'DESC')->paginate(10),
             ]); 
         }
         return view('sales.index', [

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Merchant;
 
 class MerchantSeeder extends Seeder
 {
@@ -13,6 +14,12 @@ class MerchantSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Merchant::create(
+            [
+                'name' => 'medisah',
+                'domain' => 'admin',
+                'address_line_1' => '1 Long Lane'
+            ]
+        );
     }
 }

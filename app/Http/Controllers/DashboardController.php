@@ -16,7 +16,8 @@ class DashboardController extends Controller
     {
        $sales = Sale::where('merchant_id', auth()->user()->merchant_id)->count();
        $revenue = Sale::where('merchant_id', auth()->user()->merchant_id)->sum('value');
-       $average = $revenue/$sales;
+       $average = ($revenue > 0 && $sales > 0) ? $revenue/$sales : 0;
+       
        $sold = Sale::where('merchant_id', auth()->user()->merchant_id)->get();
 
        $total = 0;

@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
         if (auth()->user()->role === 'Superadmin') {
             return view('categories.index', [
-                'users' => Category::orderBy('job_title', 'DESC')->paginate(10),
+                'categories' => Category::orderBy('id', 'DESC')->paginate(10),
             ]); 
         }
         return view('categories.index', [

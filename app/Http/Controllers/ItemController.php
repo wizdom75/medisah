@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Sale;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -16,8 +17,8 @@ class ItemController extends Controller
     public function index()
     {
         if (auth()->user()->role === 'Superadmin') {
-            return view('teams.index', [
-                'users' => User::orderBy('job_title', 'DESC')->paginate(10),
+            return view('items.index', [
+                'items' => Item::orderBy('id', 'DESC')->paginate(10),
             ]); 
         }
         return view('items.index', [

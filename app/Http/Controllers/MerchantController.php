@@ -16,6 +16,7 @@ class MerchantController extends Controller
      */
     public function index()
     {
+
         return view('merchants.index', [
             'merchants' => Merchant::orderBy('id', 'DESC')->paginate(10),
         ]);
