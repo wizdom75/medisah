@@ -14,7 +14,7 @@
     <div class="col-sm-6">
         <div class="state-information d-none d-sm-block">
             <div class="state-graph">
-            <button type="button" class="btn btn-primary waves-effect waves-light btn-lg" data-bs-toggle="modal" data-bs-target=".bs-example-modal-md">+ sale</button>
+            <!-- <button type="button" class="btn btn-primary waves-effect waves-light btn-lg" data-bs-toggle="modal" data-bs-target=".bs-example-modal-md">+ sale</button> -->
             </div>
         </div>
     </div>

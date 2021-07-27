@@ -27,8 +27,8 @@
         <div class="card">
             <div class="card-body">
 
-                <h4 class="card-title">Table Edits</h4>
-                <p class="card-title-desc">Table Edits is a lightweight jQuery plugin for making table rows editable.</p>
+                <!-- <h4 class="card-title">Table Edits</h4>
+                <p class="card-title-desc">Table Edits is a lightweight jQuery plugin for making table rows editable.</p> -->
 
                 <div class="table-responsive">
                     <table class="table table-editable table-nowrap align-middle table-edits">
