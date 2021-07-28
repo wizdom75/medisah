@@ -21,7 +21,7 @@ use App\Models\Subscription;
 //     });
 // });
 
-Route::domain('admin.'.explode('//', env('APP_URL'))[1])->group(function () {
+Route::domain('dashboard.'.explode('//', env('APP_URL'))[1])->group(function () {
 
     Route::group(['middleware' => 'auth'], function() {
         Route::resources([
