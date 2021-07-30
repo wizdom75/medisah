@@ -96,7 +96,7 @@ class ItemController extends Controller
     {
         $merchant_id = json_decode($auth_user)->merchant_id;
         if ($term === 'default') {
-            return Item::where('merchant_id', $merchant_id)->limit(2)->get();
+            return Item::where('merchant_id', $merchant_id)->limit(16)->get();
         }
         return Item::where('merchant_id', $merchant_id)
                 ->where('name','LIKE','%'.$term.'%')
