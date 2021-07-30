@@ -137,9 +137,10 @@
         },
         methods: {
             async getProducts(term) {
-                let searchTerm = (term.length >= 2) ? term : 'default'
+                let searchTerm = (term.length >= 2) ? term : 'default';
+                let authUser = document.getElementById("auth_user").value;
                 try {
-                    const response = await fetch(`/api/search/${searchTerm}`);
+                    const response = await fetch(`/api/search/${searchTerm}/${authUser}`);
                     this.products = await response.json(); 
                 } catch(err) {
                     console.log(err);

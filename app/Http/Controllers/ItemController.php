@@ -92,12 +92,14 @@ class ItemController extends Controller
         return back()->with('success', 'Item deleted');
     }
 
-    public function search($term)
+    public function search($term, $auth_user)
     {
+        $merchant_id = json_decode($auth_user)->merchant_id;
         if ($term === 'default') {
-            return Item::all();
+            return Item::where('merchant_id', $merchant_id)->limit(2)->get();
         }
-        return Item::where('name','LIKE','%'.$term.'%')
+        return Item::where('merchant_id', $merchant_id)
+                ->where('name','LIKE','%'.$term.'%')
                 ->orWhere('gtin','LIKE','%'.$term.'%')
                 ->orWhere('sku','LIKE','%'.$term.'%')
                 ->orWhere('description','LIKE','%'.$term.'%')

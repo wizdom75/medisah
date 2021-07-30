@@ -21,6 +21,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 //Route::group(['middleware' => ['auth:sanctum']], function() {
-    Route::get('/search/{term}', [App\Http\Controllers\ItemController::class, 'search']);
+    Route::get('/search/{term}/{auth_user}', [App\Http\Controllers\ItemController::class, 'search']);
     Route::post('/confirm', [App\Http\Controllers\ItemController::class, 'confirm']);
 //});

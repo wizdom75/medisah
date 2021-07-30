@@ -2198,37 +2198,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var searchTerm, response;
+        var searchTerm, authUser, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 searchTerm = term.length >= 2 ? term : 'default';
-                _context.prev = 1;
-                _context.next = 4;
-                return fetch("/api/search/".concat(searchTerm));
+                authUser = document.getElementById("auth_user").value;
+                _context.prev = 2;
+                _context.next = 5;
+                return fetch("/api/search/".concat(searchTerm, "/").concat(authUser));
 
-              case 4:
+              case 5:
                 response = _context.sent;
-                _context.next = 7;
+                _context.next = 8;
                 return response.json();
 
-              case 7:
+              case 8:
                 _this.products = _context.sent;
-                _context.next = 13;
+                _context.next = 14;
                 break;
 
-              case 10:
-                _context.prev = 10;
-                _context.t0 = _context["catch"](1);
+              case 11:
+                _context.prev = 11;
+                _context.t0 = _context["catch"](2);
                 console.log(_context.t0);
 
-              case 13:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 10]]);
+        }, _callee, null, [[2, 11]]);
       }))();
     },
     addToCart: function addToCart(cartItem) {
