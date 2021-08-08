@@ -36,6 +36,7 @@ Route::domain('dashboard.'.explode('//', env('APP_URL'))[1])->group(function () 
             'merchants' => App\Http\Controllers\MerchantController::class,
         ]);
         Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+        Route::post('/items/bulk-store', [App\Http\Controllers\ItemController::class, 'bulkStore'])->name('bulk-store');
     });
 
 });

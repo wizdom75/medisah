@@ -14,8 +14,9 @@
     <div class="col-sm-6">
         <div class="state-information d-none d-sm-block">
             <div class="state-graph">
-                <button type="button" class="btn btn-primary waves-effect waves-light btn-lg" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">+ Item</button>
-                
+                <button type="button" class="btn btn-primary waves-effect waves-light btn-lg" data-bs-toggle="modal" data-bs-target=".bs-import-modal-lg">Bulk import items</button>               
+
+                <button type="button" class="btn btn-primary waves-effect waves-light btn-lg" data-bs-toggle="modal" data-bs-target=".bs-item-modal-lg">+ Item</button>               
             </div>
         </div>
     </div>
@@ -193,7 +194,7 @@
 </div> <!-- end row -->
 
 <!-- Form -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bs-item-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -285,6 +286,74 @@
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary waves-effect waves-light me-1 btn-lg">Save </button>
+                        <button type="reset" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div> <!-- end col -->
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- Import form -->
+<div class="modal fade bs-import-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="myLargeModalLabel">Bulk import items</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+            <div class="table-responsive">
+                <table class="table table-bordered border-primary mb-0">
+                    <thead>
+                        <tr>
+                            <th>Item name</th>
+                            <th>Item description</th>
+                            <th>Gtin (Barcode)</th>
+                            <th>SKU</th>
+                            <th>Unit</th>
+                            <th>Price</th>
+                            <th>Cost</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Panadol</td>
+                            <td>Most common pain killer blah blah</td>
+                            <td>1080937298734</td>
+                            <td>EX121</td>
+                            <td>Litre</td>
+                            <td>15.99</td>
+                            <td>9.99</td>
+                            <td>200</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                <form class="form" action=" {{ route('bulk-store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="mb-3 col-md-6 offset-md-3">
+                            <div class="mb-3">
+                                <label class="form-lable mt-3">File input</label>
+                                <input name="csv_file" type="file" class="filestyle" data-buttonname="btn-secondary" id="filestyle-0" tabindex="-1" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
+                                <div class="bootstrap-filestyle input-group">
+                                    <div name="filedrag" style="position: absolute; width: 100%; height: 33px; z-index: -1;"></div>
+                                    <input type="text" class="form-control " placeholder="" disabled="" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;"> 
+                                    <span class="group-span-filestyle input-group-btn" tabindex="0">
+                                        <label for="filestyle-0" style="margin-bottom: 0;" class="btn btn-secondary ">
+                                            <span class="buttonText">Choose file</span>
+                                        </label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light me-1 btn-lg">Import </button>
                         <button type="reset" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>

@@ -6,9 +6,11 @@ use App\Models\Item;
 use App\Models\Sale;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
+    private $data;
     /**
      * Display a listing of the resource.
      *
@@ -53,6 +55,72 @@ class ItemController extends Controller
         return back()->with('success', 'Item created');
     }
 
+    public function bulkStore(Request $request)
+    {
+        //Handle csv upload
+        if($request->hasFile('csv_file')){
+            $handle = fopen($request->file('csv_file'), 'r');
+
+            $flag = true;
+            while (($this->data = fgetcsv($handle, 0, ',')) !== FALSE){
+                if($flag) { $flag = false; continue; }
+    
+
+                //Check if this exists in DB and update
+                $item = DB::table('items')
+                            ->where('merchant_id', '=', auth()->user()->merchant_id)
+                            ->where(function ($query) {
+                                    $query->where('gtin', '=', trim(@$this->data[2]))
+                                    ->orWhere('sku', '=', trim(@$this->data[3]));
+
+                                
+                            })
+                            ->get();
+
+                $item = Item::where('merchant_id', '=', auth()->user()->merchant_id)
+                            ->where(function ($query) {
+                                $query->where('gtin', '=', trim(@$this->data[2]))
+                                ->orWhere('sku', '=', trim(@$this->data[3]));
+
+                            
+                        })
+                        ->first();
+
+                if ($item) {
+                    $item->price = trim(@$this->data[5]);
+                    $item->cost = trim(@$this->data[6]);
+                    $item->stock = trim(@$this->data[7]);
+                    $item->price = @$item->price * 100;
+                    $item->cost = @$item->cost * 100;
+                    $item->save();
+                } else {
+                    $item = new Item;
+                    $item->name = trim(@$this->data[0]);
+                    $item->category_id = 0;
+                    $item->merchant_id = auth()->user()->merchant_id;
+                    $item->description = trim(@$this->data[1]);
+
+                    $item->gtin = trim(@$this->data[2]);
+                    $item->sku = trim(@$this->data[3]);
+                    $item->unit = 'Item';
+
+                    $item->price = trim(@$this->data[5]);
+                    $item->cost = trim(@$this->data[6]);
+                    $item->stock = trim(@$this->data[7]);
+                    $item->price = $item->price * 100;
+                    $item->cost = $item->cost * 100;
+
+                    $item->save();
+                }
+
+                
+
+            }
+            fclose($handle);
+           return back()->with('success', 'Items imported successfully');
+        }
+        return back()->with('error', 'No file to import');
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -141,4 +209,5 @@ class ItemController extends Controller
         }
 
     }
+
 }
