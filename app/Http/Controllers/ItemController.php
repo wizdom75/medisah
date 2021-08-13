@@ -67,22 +67,10 @@ class ItemController extends Controller
     
 
                 //Check if this exists in DB and update
-                $item = DB::table('items')
-                            ->where('merchant_id', '=', auth()->user()->merchant_id)
-                            ->where(function ($query) {
-                                    $query->where('gtin', '=', trim(@$this->data[2]))
-                                    ->orWhere('sku', '=', trim(@$this->data[3]));
-
-                                
-                            })
-                            ->get();
-
                 $item = Item::where('merchant_id', '=', auth()->user()->merchant_id)
                             ->where(function ($query) {
                                 $query->where('gtin', '=', trim(@$this->data[2]))
-                                ->orWhere('sku', '=', trim(@$this->data[3]));
-
-                            
+                                ->orWhere('sku', '=', trim(@$this->data[3]));                            
                         })
                         ->first();
 

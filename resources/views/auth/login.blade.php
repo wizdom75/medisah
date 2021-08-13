@@ -16,8 +16,6 @@
                         </h3>
 
                         <div class="p-3">
-                            <h4 class="text-muted font-size-18 mb-1 text-center">Welcome Back !</h4>
-                            <p class="text-muted text-center">Sign in to continue to your dashboard.</p>
                             <form class="form-horizontal mt-4"  method="POST" action="{{ route('login') }}">
                             @csrf
                                 <div class="mb-3">

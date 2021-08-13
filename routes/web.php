@@ -31,12 +31,14 @@ Route::domain('dashboard.'.explode('//', env('APP_URL'))[1])->group(function () 
             'suppliers' => App\Http\Controllers\SupplierController::class,
             'sales' => App\Http\Controllers\SaleController::class,
             'users' => App\Http\Controllers\UserController::class,
+            'profile' => App\Http\Controllers\ProfileController::class,
             'teams' => App\Http\Controllers\TeamController::class,
             'items' => App\Http\Controllers\ItemController::class,
             'merchants' => App\Http\Controllers\MerchantController::class,
         ]);
         Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
         Route::post('/items/bulk-store', [App\Http\Controllers\ItemController::class, 'bulkStore'])->name('bulk-store');
+        Route::post('/profile/upload-avatar', [App\Http\Controllers\ProfileController::class, 'uploadAvatar'])->name('upload-avatar');
     });
 
 });
