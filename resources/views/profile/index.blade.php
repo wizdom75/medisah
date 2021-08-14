@@ -22,7 +22,7 @@
                     <div>
                         <input type="file" name="avatarUpload" id="avatarUpload" style="display: none" onchange="uploadAvatar()">
                         <label for="avatarUpload">
-                            <img class="rounded-circle m-5" src="storage/assets/images/users/user-{{ $user->id }}.jpg" alt="Generic placeholder image" width="170" height="170">       
+                            <img class="rounded-circle m-5" src="{{ getAvatar($user->id) }}" alt="Generic placeholder image" width="170" height="170">       
                         </label>                       
                     </div>
                 </div>

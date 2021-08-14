@@ -27,7 +27,7 @@
             <div>
                 <div class="directory-bg text-center">
                     <div class="directory-overlay">
-                        <img class="rounded-circle avatar-lg img-thumbnail" src="assets/images/users/user-{{ $user->id }}.jpg" alt="Generic placeholder image">
+                        <img class="rounded-circle avatar-lg img-thumbnail" src="{{ getAvatar($user->id) }}" alt="Generic placeholder image">
                     </div>
                 </div>
 
