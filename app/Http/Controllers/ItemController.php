@@ -92,9 +92,10 @@ class ItemController extends Controller
                     $item->sku = trim(@$this->data[3]);
                     $item->unit = 'Item';
 
-                    $item->price = trim(@$this->data[5]);
-                    $item->cost = trim(@$this->data[6]);
+                    $item->price = (float) trim(@$this->data[5]);
+                    $item->cost = (float) trim(@$this->data[6]);
                     $item->stock = trim(@$this->data[7]);
+
                     $item->price = $item->price * 100;
                     $item->cost = $item->cost * 100;
 
