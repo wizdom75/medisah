@@ -151,16 +151,18 @@ class ItemController extends Controller
 
     public function search($term, $auth_user)
     {
+        $this->term = $term;
         $merchant_id = json_decode($auth_user)->merchant_id;
         if ($term === 'default') {
             return Item::where('merchant_id', $merchant_id)->limit(16)->get();
         }
-        return Item::where('merchant_id', $merchant_id)
-                ->where('name','LIKE','%'.$term.'%')
-                ->orWhere('gtin','LIKE','%'.$term.'%')
-                ->orWhere('sku','LIKE','%'.$term.'%')
-                ->orWhere('description','LIKE','%'.$term.'%')
-                ->get();
+
+        return Item::where('merchant_id', $merchant_id)->where(function ($query) {
+                $query->where('name','LIKE','%'.$this->term.'%')
+                ->orWhere('gtin','LIKE','%'.$this->term.'%')
+                ->orWhere('sku','LIKE','%'.$this->term.'%')
+                ->orWhere('description','LIKE','%'.$this->term.'%');
+    })->get();
     }
 
     public function confirm(Request $request)

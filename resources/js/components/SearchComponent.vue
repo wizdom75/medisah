@@ -141,7 +141,8 @@
                 let authUser = document.getElementById("auth_user").value;
                 try {
                     const response = await fetch(`/api/search/${searchTerm}/${authUser}`);
-                    this.products = await response.json(); 
+                    this.products = await response.json();
+                    console.log(this.products);
                 } catch(err) {
                     console.log(err);
                 }           
