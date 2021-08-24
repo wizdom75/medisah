@@ -47,6 +47,7 @@ class MerchantController extends Controller
         $merchant->postcode = $request->input('postcode');
         $merchant->country = $request->input('country');
         $merchant->save();
+        LogActivity(auth()->id(), 'Merchant', __FUNCTION__, $request);
 
         $user = new User;
         $user->name = $request->input('name');
@@ -57,6 +58,8 @@ class MerchantController extends Controller
         $user->password = Hash::make('secret');
         $user->merchant_id = $merchant->id;
         $user->save();
+        LogActivity(auth()->id(), 'User', __FUNCTION__, $request);
+
         
         return back()->with('success', 'Merchant created');
     }
@@ -79,6 +82,8 @@ class MerchantController extends Controller
         $merchant->postcode = $request->input('postcode');
         $merchant->country = $request->input('country');
         $merchant->save();
+        LogActivity(auth()->id(), 'Merchant', __FUNCTION__, $request);
+
 
         $user = User::where('merchant_id', $merchant->id)->first();
         $user->name = $request->input('name');
@@ -88,6 +93,8 @@ class MerchantController extends Controller
         $user->job_title = $request->input('job_title');
         $user->merchant_id = $merchant->id;
         $user->save();
+        LogActivity(auth()->id(), 'User', __FUNCTION__, $request);
+
 
         return back()->with('success', 'Merchant updated');
     }
@@ -101,6 +108,8 @@ class MerchantController extends Controller
     public function destroy(Merchant $merchant)
     {
         $merchant->delete();
+        LogActivity(auth()->id(), 'Merchant', __FUNCTION__, $merchant);
+
         return back()->with('success', 'Merchant deleted');
     }
 }

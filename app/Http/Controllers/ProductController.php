@@ -36,6 +36,8 @@ class ProductController extends Controller
             'description' => 'max:2550',
         ]);
         Product::create($validated);
+        LogActivity(auth()->id(), 'Product', __FUNCTION__, $validated);
+
         return back()->with('success', 'Product created');
     }
 
@@ -57,6 +59,8 @@ class ProductController extends Controller
             'description' => 'max:2550',
         ]);
         $product->update($validated);
+        LogActivity(auth()->id(), 'Product', __FUNCTION__, $product);
+        
         return back()->with('success', 'Product updated');
     }
 
@@ -69,6 +73,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        LogActivity(auth()->id(), 'Product', __FUNCTION__, $product);
+
         return back()->with('success', 'Product deleted');
     }
 }

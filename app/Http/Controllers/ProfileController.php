@@ -75,6 +75,8 @@ class ProfileController extends Controller
         $user->name = $request->input('name');
         $user->phone = $request->input('phone');
         $user->save();
+        LogActivity(auth()->id(), 'User', __FUNCTION__, $user);
+
 
         return back()->with('success', 'Profile updated');
     }
@@ -88,6 +90,8 @@ class ProfileController extends Controller
             // $filename_save = 'logo_'.$request->input('mid').'.'.$ext;
             $filename_save = "user-$userId.jpg";      
             $request->file('avatar')->storeAs('public/assets/images/users/', $filename_save);
+            LogActivity(auth()->id(), 'User', __FUNCTION__, $filename_save);
+
             // $retailer->logo = 'public/images/retailers/'.$filename_save;
         }
     }

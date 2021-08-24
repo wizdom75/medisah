@@ -37,6 +37,7 @@ class TeamController extends Controller
         $user->password = Hash::make('secret');
         $user->merchant_id = auth()->user()->merchant_id ?? null;
         $user->save();
+        LogActivity(auth()->id(), 'User', __FUNCTION__, $user);
 
         return back()->with('success', 'Team member created');
     }
@@ -50,6 +51,8 @@ class TeamController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+        LogActivity(auth()->id(), 'Team', __FUNCTION__, $user);
+
         return back()->with('success', 'Team member deleted');
     }
 }

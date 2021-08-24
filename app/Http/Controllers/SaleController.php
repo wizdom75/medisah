@@ -33,6 +33,8 @@ class SaleController extends Controller
     public function destroy(Sale $sale)
     {
         $sale->delete();
+        LogActivity(auth()->id(), 'Sale', __FUNCTION__, $sale);
+
         return back()->with('success', 'Sale deleted');
     }
 }

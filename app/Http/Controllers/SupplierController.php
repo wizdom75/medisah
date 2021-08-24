@@ -44,6 +44,8 @@ class SupplierController extends Controller
         ]);
         $validated['merchant_id'] = auth()->user()->merchant_id ?? null;
         Supplier::create($validated);
+        LogActivity(auth()->id(), 'Supplier', __FUNCTION__, $supplier);
+
         return back()->with('success', 'Supplier created');
     }
 
@@ -67,6 +69,8 @@ class SupplierController extends Controller
             'contact_phone' => 'max:255',
         ]);
         $supplier->update($validated);
+        LogActivity(auth()->id(), 'Supplier', __FUNCTION__, $supplier);
+
         return back()->with('success', 'Supplier updated');
     }
 
@@ -79,6 +83,8 @@ class SupplierController extends Controller
     public function destroy(Supplier $supplier)
     {
         $supplier->delete();
+        LogActivity(auth()->id(), 'Supplier', __FUNCTION__, $supplier);
+
         return back()->with('success', 'Supplier deleted');
     }
 }

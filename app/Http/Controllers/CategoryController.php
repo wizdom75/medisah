@@ -49,6 +49,8 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->input('name');
         $category->save();
+        LogActivity(auth()->id(), 'Category', __FUNCTION__, $category);
+
 
         return back()->with('success', 'Category created');
     }
@@ -96,6 +98,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
+        LogActivity(auth()->id(), 'Category', __FUNCTION__, $category);
+
         return back()->with('success', 'Category deleted');
     }
 }

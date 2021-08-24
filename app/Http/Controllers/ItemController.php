@@ -52,6 +52,7 @@ class ItemController extends Controller
         $validated['price'] = $request->input('price') * 100;
         $validated['cost'] = $request->input('cost') * 100;
         Item::create($validated);
+        LogActivity(auth()->id(), 'Item', __FUNCTION__, $validated);
         return back()->with('success', 'Item created');
     }
 
@@ -134,6 +135,8 @@ class ItemController extends Controller
         $validated['cost'] = $request->input('cost') * 100;
 
         $item->update($validated);
+        LogActivity(auth()->id(), 'Item', __FUNCTION__, $validated);
+
         return back()->with('success', 'Item updated');
     }
 
@@ -146,6 +149,8 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
         $item->delete();
+        LogActivity(auth()->id(), 'Item', __FUNCTION__, $item);
+
         return back()->with('success', 'Item deleted');
     }
 

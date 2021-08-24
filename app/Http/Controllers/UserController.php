@@ -34,6 +34,8 @@ class UserController extends Controller
         ]);
 
         $user->update($validated);
+        LogActivity(auth()->id(), 'User', __FUNCTION__, $validated);
+
         return back()->with('success', 'User updated');
     }
 
