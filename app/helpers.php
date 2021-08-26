@@ -1,5 +1,5 @@
 <?php
-    use App\models\Activity;
+    use App\Models\Activity;
 
 function getAvatar($userId)
 {
