@@ -4,9 +4,9 @@
             <input class="form-control form-control-lg" type="text" id="form-lg-input" name="search" placeholder="Search..."
             v-on:keyup="getProducts($event.target.value)"/>
             <div class="row py-3">
-                <div  v-for="product in products" class="col-md-3 col-6" :key="product.id">
-                    <div class="card card-body" v-on:click="addToCart(product)">
-                        <img class="img-thumbnail border-0" :src="product.image" alt="" >
+                <div  v-for="product in products" class="col-md-3 col-6 d-flex " :key="product.id">
+                    <div class="card  card-body flex-fill btn" v-on:click="addToCart(product)">
+                        <!--<img class="img-thumbnail border-0" :src="product.image" alt="" >-->
                         <div class="card-text">{{ product.name }}</div>
                         <div class="card-footer bg-transparent">${{ (product.price/100).toFixed(2) }}</div>
                     </div>
@@ -17,7 +17,7 @@
         <div class="col-md-5">
             <div class="card " style="height:38rem">
             <div class="card-header bg-transparent">Checkout Contents</div>
-            <ul class="list-group vh-100 scrollable">
+            <ul class="list-group vh-100 scrollable" id="scrollable">
                 <li class="list-group-item rounded-0" v-for="item in cartItems" :key="cartItems.indexOf(item)">
                     <div class="row">
                         <div class="col-2">{{ item.id }}</div>
@@ -151,6 +151,9 @@
                 this.cartItems.push(cartItem);
                 this.cartTotal += cartItem.price;
                 this.prepCart();
+                var objDiv = document.getElementById("scrollable");
+                objDiv.scrollTop = objDiv.scrollHeight + 200;
+                objDiv.class = 'success';
                 
             },
             async removeItemFromCart(cartItem) {
