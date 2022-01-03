@@ -2173,6 +2173,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     this.getProducts('default');
@@ -2216,21 +2217,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 8:
                 _this.products = _context.sent;
-                console.log(_this.products);
-                _context.next = 15;
+                _context.next = 14;
                 break;
 
-              case 12:
-                _context.prev = 12;
+              case 11:
+                _context.prev = 11;
                 _context.t0 = _context["catch"](2);
                 console.log(_context.t0);
 
-              case 15:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[2, 12]]);
+        }, _callee, null, [[2, 11]]);
       }))();
     },
     addToCart: function addToCart(cartItem) {
@@ -2242,6 +2242,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                // Before adding to cart lets check if item is already in cart and adjust the amount nad quantity instead of adding new items
+                if (_this2.cartItems.includes(cartItem)) {
+                  console.log(cartItem);
+                }
+
                 _this2.cartItems.push(cartItem);
 
                 _this2.cartTotal += cartItem.price;
@@ -2252,7 +2257,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 objDiv.scrollTop = objDiv.scrollHeight + 200;
                 objDiv["class"] = 'success';
 
-              case 6:
+              case 7:
               case "end":
                 return _context2.stop();
             }
@@ -2355,7 +2360,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       this.cartChange = true;
       this.changeAmount = "".concat(((tendered - this.cartTotal) / 100).toFixed(2));
-      console.log("Change is ".concat(((tendered - this.cartTotal) / 100).toFixed(2)));
     },
     takeMoney: function takeMoney(e) {
       e.preventDefault();
@@ -2372,7 +2376,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       this.takeSetMoney(e, amount);
-      console.log(this.cartTotal);
     },
     confirmSale: function confirmSale(e) {
       var _this5 = this;
@@ -2391,7 +2394,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     authUser: _this5.authUser
                   })
                 }).then(function (res) {
-                  console.log(res);
                   _this5.cartItems = [];
                   _this5.cartTotal = 0;
                   localStorage.removeItem('cartItems');
@@ -39353,7 +39355,8 @@ var render = function() {
               _c(
                 "div",
                 {
-                  staticClass: "card  card-body flex-fill btn",
+                  staticClass: "card border-light mb-3 btn",
+                  staticStyle: { "max-width": "18rem" },
                   on: {
                     click: function($event) {
                       return _vm.addToCart(product)
@@ -39361,13 +39364,17 @@ var render = function() {
                   }
                 },
                 [
-                  _c("div", { staticClass: "card-text" }, [
-                    _vm._v(_vm._s(product.name))
+                  _c("div", { staticClass: "card-body text-dark" }, [
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(product.name))
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "card-footer bg-transparent" }, [
-                    _vm._v("$" + _vm._s((product.price / 100).toFixed(2)))
-                  ])
+                  _c(
+                    "div",
+                    { staticClass: "card-footer bg-transparent border-light" },
+                    [_vm._v("$" + _vm._s((product.price / 100).toFixed(2)))]
+                  )
                 ]
               )
             ]
